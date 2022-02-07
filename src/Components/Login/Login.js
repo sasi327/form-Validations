@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom';
 function Login(props) {
     const [userDetails, setuserDetails] = useState({ email: '', password: '' });
     const [isEmail, setEmail] = useState(true)
@@ -80,26 +80,28 @@ function Login(props) {
 
     return (
         <>
-            <Router>
+            
 
-                <div className='container'>
+                <div className='container bg-primary'>
                     <div className='row'>
-                        <div className='card col-md-5 m-auto mt-5'>
+                        {/* <h3 className='text-white mt-3'> Sign in to your account</h3> */}
+                        <div className='card col-md-5 m-auto mt-2'>
                             <div className='card-body'>
                                 <form onSubmit={validate}>
-                                    <div className='mt-4'>
-                                        <label>Email Address</label>
-
+                                    <div className='mt-2'>
+                                        
+                                        <label>EmailAddress</label>
                                         <input type='text' name='email' placeholder='Enter Your Email Address...' className='form-control mt-2' value={userDetails.email} onChange={(event) => { updateUserDetails(event) }} />
                                         {isEmail ? null : <span style={{ color: 'red', fontSize: '13px' }}>{EmailError}</span>}
+                                        
                                     </div>
                                     <div className='mt-4'>
                                         <div className='d-flex justify-content-between mt-2'>
                                             <div>
-                                                <label>Password</label>
+                                                <label><b>Password</b></label>
                                             </div>
                                             <div>
-                                                <span onClick={handleSubmit2} className="text-primary">Forgot password?</span>
+                                                <span onClick={handleSubmit2} className="text-primary"><u>Forgot password?</u></span>
 
                                             </div>
                                         </div>
@@ -116,14 +118,16 @@ function Login(props) {
                     <div className='row mt-5'>
                         <div className='card col-md-5  m-auto'style={{height:'75px'}}>
                             <div className='card-body text-center mt-2'>
-                                <span>New User?<span onClick={handleSubmit1} className="text-primary">Create an account</span></span>
+                                <span>New User?<span onClick={handleSubmit1} className="text-primary"><u>Create an account</u></span></span>
                             </div>
                         </div>
                     </div>
+
+                   
                 </div>
 
 
-            </Router>
+            
         </>
     )
 }
